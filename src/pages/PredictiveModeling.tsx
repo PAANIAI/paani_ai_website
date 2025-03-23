@@ -1,18 +1,19 @@
 import React from 'react';
+import '../App.css'; // Assuming your common styles are imported here
 
 const PredictiveModeling: React.FC = () => {
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem' }}>
+    <div className="page-container">
       {/* Main Title */}
-      <h1 style={{ marginBottom: '1.5rem', color: '#2a54c8' }}>
-         Predictive Modeling for a Sustainable Water Future
+      <h1 className="page-title">
+        Predictive Modeling for a Sustainable Water Future
       </h1>
 
-      {/* Placeholder Image */}
+      {/* Image */}
       <img
         src="/images/Predictive_modeling.png"
         alt="Predictive Modeling"
-        style={{ width: '100%', height: 'auto', marginBottom: '2rem', borderRadius: '4px' }}
+        className="page-image"
       />
 
       {/* Intro Paragraph */}
@@ -26,7 +27,10 @@ const PredictiveModeling: React.FC = () => {
       </p>
 
       {/* Subheading 1 */}
-      <h2>Our Current Work in Predictive Modeling: Paani AI</h2>
+      <h2 className="page-subtitle">
+        Our Current Work in Predictive Modeling: Paani AI
+      </h2>
+
       <p>
         In urban centers, water demand fluctuates due to factors like population density, seasonal
         variations, and infrastructure constraints. To address this, we are pioneering the use of
@@ -35,23 +39,29 @@ const PredictiveModeling: React.FC = () => {
         demand</strong>. These models not only handle the complexity of dynamic variables but also
         enable granular predictions at city and district levels.
       </p>
+
       <p>
         By integrating diverse datasets, including historical water usage patterns, climate data,
         and socio-economic indicators, our predictive tools empower water utilities to:
       </p>
-      <ul>
+
+      <ul className="page-list">
         <li>Proactively manage supply-demand gaps.</li>
         <li>Optimize distribution systems to minimize waste.</li>
         <li>Respond to emergencies, such as droughts or infrastructure failures, with greater agility.</li>
       </ul>
 
       {/* Subheading 2 */}
-      <h2>Expanding the Horizon: The Future of Predictive Modeling in Water Sector of Nepal</h2>
+      <h2 className="page-subtitle">
+        Expanding the Horizon: The Future of Predictive Modeling in Water Sector of Nepal
+      </h2>
+
       <p>
         While short-term forecasting is a critical step, our vision extends far beyond.
         At Paani AI, we are conceptualizing and developing tools to:
       </p>
-      <ol style={{ paddingLeft: '1.5rem' }}>
+
+      <ol className="page-ordered-list">
         <li>
           <strong>Forecast Long-Term Water Availability:</strong> Combining hydrological data
           with machine learning models to predict river flow and reservoir levels, aiding
@@ -64,7 +74,8 @@ const PredictiveModeling: React.FC = () => {
       </ol>
 
       {/* Subheading 3 */}
-      <h2>Why This Matters</h2>
+      <h2 className="page-subtitle">Why This Matters</h2>
+
       <p>
         Nepal’s unique geography and rapid development demand solutions that balance economic
         growth with environmental stewardship. Predictive modeling, powered by AI and big data,
@@ -74,7 +85,7 @@ const PredictiveModeling: React.FC = () => {
       </p>
 
       {/* Concluding Statement */}
-      <p style={{ fontStyle: 'italic', marginTop: '2rem' }}>
+      <p className="page-conclusion">
         At Paani AI, we are not just building technology; we are shaping the
         foundation for a <strong>sustainable and resilient water future</strong>.
       </p>
