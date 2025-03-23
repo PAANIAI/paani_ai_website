@@ -1,31 +1,23 @@
 import React from 'react';
+import '../App.css'; // Ensure the path to your CSS file is correct
 
 const WaterConsultations: React.FC = () => {
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '2rem', lineHeight: 1.6 }}>
-
-      {/* Main Title: Large, Blue, Bold */}
-      <h1
-        style={{
-          fontSize: '2.5rem',
-          fontWeight: 'bold',
-          color: '#2a54c8',
-          marginBottom: '1rem',
-          lineHeight: 1.2,
-        }}
-      >
+    <div className="page-container">
+      {/* Main Title */}
+      <h1 className="page-title">
         Water Consultation Services: Paani AI’s Approach
       </h1>
 
-      {/* Optional Top Image */}
+      {/* Top Image */}
       <img
         src="/images/Consultations.png"
         alt="Water Consultation Visualization"
-        style={{ width: '100%', height: 'auto', borderRadius: '4px', marginBottom: '2rem' }}
+        className="page-image"
       />
 
       {/* Intro Paragraph */}
-      <p style={{ marginBottom: '1.5rem' }}>
+      <p>
         At <strong>Paani AI</strong>, we understand that every water system is unique,
         with its own challenges and opportunities. Whether it’s improving water
         distribution efficiency, implementing smart monitoring solutions, or
@@ -35,18 +27,9 @@ const WaterConsultations: React.FC = () => {
       </p>
 
       {/* Subheading */}
-      <h2
-        style={{
-          fontSize: '1.75rem',
-          fontWeight: 'bold',
-          marginBottom: '1rem',
-          marginTop: '2rem',
-          lineHeight: 1.3,
-        }}
-      >
-        Why Water Consultations Matter
-      </h2>
-      <p style={{ marginBottom: '1.5rem' }}>
+      <h2 className="page-subtitle">Why Water Consultations Matter</h2>
+
+      <p>
         Water resources in Nepal are abundant yet often underutilized due to outdated
         infrastructure, fragmented data, and policy gaps. Our consultation services aim
         to bridge these gaps, guiding stakeholders through modern, tech-driven approaches
@@ -54,21 +37,13 @@ const WaterConsultations: React.FC = () => {
       </p>
 
       {/* Another Subheading */}
-      <h2
-        style={{
-          fontSize: '1.75rem',
-          fontWeight: 'bold',
-          marginBottom: '1rem',
-          marginTop: '2rem',
-          lineHeight: 1.3,
-        }}
-      >
-        Our Three-Step Approach
-      </h2>
-      <p style={{ marginBottom: '0.75rem' }}>
+      <h2 className="page-subtitle">Our Three-Step Approach</h2>
+
+      <p>
         Each consultation project typically involves:
       </p>
-      <ul style={{ marginLeft: '1.5rem', marginBottom: '1.5rem' }}>
+
+      <ul className="page-list">
         <li>
           <strong>Assessment and Analysis:</strong> We evaluate your current water infrastructure,
           usage patterns, and pain points to identify key areas for improvement.
@@ -85,7 +60,7 @@ const WaterConsultations: React.FC = () => {
         </li>
       </ul>
 
-      {/* Conclusion or Wrap-Up */}
+      {/* Conclusion */}
       <p>
         By combining our technical expertise with a deep understanding of local conditions,
         Paani AI helps organizations achieve greater efficiency, reduce water losses, and
@@ -98,4 +73,3 @@ const WaterConsultations: React.FC = () => {
 };
 
 export default WaterConsultations;
-
