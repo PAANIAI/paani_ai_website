@@ -13,7 +13,7 @@ const DigitalizingNepalWater: React.FC = () => {
       <img
         src="/images/Research.png"
         alt="Digitalization in Water Management"
-        className="page-image"
+        className="page-image"equitable
       />
 
       {/* Introduction */}
