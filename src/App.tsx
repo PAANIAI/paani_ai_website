@@ -25,7 +25,7 @@ function App() {
         <Route path="/predictive-modeling" element={<PredictiveModeling />} />
         <Route path="/digital-twin-models" element={<DigitalTwinModels />} />
         <Route path="/water-consultations" element={<WaterConsultations />} />
-        <Route path="/blog1" element={<DigitalizingNepalWater />} />
+        <Route path="/digitalizing-nepal-water" element={<DigitalizingNepalWater />} />
         <Route path="/blog2" element={<Blog2 />} />
 
       </Routes>
