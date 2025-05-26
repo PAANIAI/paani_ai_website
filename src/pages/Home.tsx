@@ -167,7 +167,7 @@ const services = [
     title: 'Water Consultations',
     description: 'Expert Solutions for Integrated Water Resource Management in Nepal',
     image: '/images/Consultations.png',
-  },
+  }
 ];
 
 const blogs = [
