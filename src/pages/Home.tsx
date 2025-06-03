@@ -1,154 +1,6 @@
-
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-
-function Home() {
-  return (
-    <div className="App">
-      {/* Navigation Bar */}
-      <nav className="navbar">
-        <div className="navbar-brand">Paani AI</div>
-      </nav>
-
-      {/* Hero Section */}
-      <header className="hero-section">
-        {/* ✅ Background Image Only (CSS handles this) */}
-        {/* No video tag here now */}
-
-        
-        <h1>Paani AI</h1>
-        <h2>Empowering Nepal’s Water Sector with Data-Driven Innovation</h2>
-        <Link to="/about">
-          <button className="hero-button">About Paani</button>
-        </Link>
-      </header>
-
-      {/* How Paani Transforms */}
-      <section className="transform-section">
-        <h2>How Paani Transforms</h2>
-        <p>
-          At <strong>Paani AI</strong>, we aim to ensure water is{' '}
-          <strong>accessible, safe, and sustainably managed</strong>. We provide water utilities and the
-          government with <strong>data-driven solutions</strong> for sustainable and resilient water management
-          in Nepal.
-        </p>
-      </section>
-
-      {/* Phases Section */}
-      <section className="phases-section">
-        <h2 className="phase-main-title">Our Roadmap</h2>
-
-        {/* Phase 1 */}
-        <div className="phase1-container">
-          <h3>Phase 1: The Catalyst Stage</h3>
-          <div className="flip-cards-row">
-            {flipCards.map(({ image, title, text }, index) => (
-              <div key={index} className="flip-card-wrapper">
-                <div className="flip-card">
-                  <div className="flip-card-inner">
-                    <div className="flip-card-front">
-                      <img src={image} alt={title} />
-                    </div>
-                    <div className="flip-card-back">
-                      <strong>{title}</strong>
-                      <p>{text}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* ✅ Title below each card */}
-                <div className="card-title-below">{title}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Phase 2 */}
-        <div className="phase2">
-          <h3>Phase 2: Shaping the Future</h3>
-          <p>Building on Phase 1, we now provide advanced, data-driven services:</p>
-
-          <div className="services-row">
-            {services.map(({ link, title, description, image }, index) => (
-              <Link to={link} key={index} className="service">
-                <h3>{title}</h3>
-                <p>{description}</p>
-                <img src={image} alt={title} />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What Are We Doing? Section */}
-<section className="doing-section">
-  <h2 className="section-title">Our Current Initiative</h2>
-  <p className="doing-description">
-    Introducing Prabaha, a mentorship program supporting Nepalese students pursuing careers in the water sector. With guidance from 15+ mentors and 10 advisors, students gain insights into research, civil service, and the role of data and innovation. Prabaha also builds a strong network to strengthen Nepal’s water sector community.
-  </p>
-  <div className="doing-images-row">
-    <div className="doing-image-wrapper">
-      <img src="/images/1.webp" />
-    </div>
-    <div className="doing-image-wrapper">
-      <img src="/images/2.webp" />
-    </div>
-    <div className="doing-image-wrapper">
-      <img src="/images/3.webp" />
-    </div>
-    <div className="doing-image-wrapper">
-      <img src="/images/4.webp" />
-    </div>
-  </div>
-</section>
-
-
-
-      {/* Blogs */}
-      <section className="blog-section">
-        <h2 className="section-title">Blogs</h2>
-        <div className="blogs-container">
-          {blogs.map(({ link, title, description, image }, index) => (
-            <Link to={link} key={index} className="blog">
-              <img src={image} alt={title} className="blog-image" />
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* Team Section */}
-      {/*
-      <section className="team-section">
-        <h2>Our Team</h2>
-        <div className="team-members-grid">
-          {teamMembers.map(({ image, name, position }, index) => (
-            <div key={index} className="team-member">
-              <img src={image} alt={name} />
-              <div>
-                <p><strong>{name}</strong></p>
-                <p>{position}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-      */}
-
-      {/* Contact Us Footer */}
-      <footer className="contact-section">
-        <h2>Contact Us</h2>
-        <p>
-          Have questions or want to learn more about Paani AI? Email us at admin@paaniai.org, and
-          we'll get back to you soon.
-        </p>
-      </footer>
-    </div>
-  );
-}
-
-export default Home;
 
 const flipCards = [
   {
@@ -209,27 +61,153 @@ const blogs = [
   },
 ];
 
-/*
-const teamMembers = [
-  {
-    image: '/images/garima_formal.jpg',
-    name: 'Garima Acharya, Co-Founder',
-    position: 'Civil Engineer',
-  },
-  {
-    image: '/images/Suniti.jpg',
-    name: 'Suniti Shrestha',
-    position: 'Computer Scientist',
-  },
-  {
-    image: '/images/pramish.jpeg',
-    name: 'Pramish Paudel, CTO',
-    position: 'Computer Scientist',
-  },
-  {
-    image: '/images/pramish.jpeg',
-    name: 'Prabigya Acharya, CTO',
-    position: 'Computer Scientist',
-  },
+const carouselImages = [
+  '/images/1.webp',
+  '/images/2.webp',
+  '/images/3.webp',
+  '/images/4.webp',
 ];
-*/
+
+const Home: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto cycle every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev === 0 ? carouselImages.length - 1 : prev - 1));
+  };
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % carouselImages.length);
+  };
+
+  return (
+    <div className="App">
+      {/* Navigation Bar */}
+      <nav className="navbar">
+        <div className="navbar-brand">Paani AI</div>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="hero-section">
+        <h1>Paani AI</h1>
+        <h2>Empowering Nepal’s Water Sector with Data-Driven Innovation</h2>
+        <Link to="/about">
+          <button className="hero-button">About Paani</button>
+        </Link>
+      </header>
+
+      {/* How Paani Transforms */}
+      <section className="transform-section">
+        <h2>How Paani Transforms</h2>
+        <p>
+          At <strong>Paani AI</strong>, we aim to ensure water is{' '}
+          <strong>accessible, safe, and sustainably managed</strong>. We provide water utilities and the
+          government with <strong>data-driven solutions</strong> for sustainable and resilient water management
+          in Nepal.
+        </p>
+      </section>
+
+      {/* Phases Section */}
+      <section className="phases-section">
+        <h2 className="phase-main-title">Our Roadmap</h2>
+
+        {/* Phase 1 */}
+        <div className="phase1-container">
+          <h3>Phase 1: The Catalyst Stage</h3>
+          <div className="flip-cards-row">
+            {flipCards.map(({ image, title, text }, index) => (
+              <div key={index} className="flip-card-wrapper">
+                <div className="flip-card">
+                  <div className="flip-card-inner">
+                    <div className="flip-card-front">
+                      <img src={image} alt={title} />
+                    </div>
+                    <div className="flip-card-back">
+                      <strong>{title}</strong>
+                      <p>{text}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="card-title-below">{title}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Phase 2 */}
+        <div className="phase2">
+          <h3>Phase 2: Shaping the Future</h3>
+          <p>Building on Phase 1, we now provide advanced, data-driven services:</p>
+
+          <div className="services-row">
+            {services.map(({ link, title, description, image }, index) => (
+              <Link to={link} key={index} className="service">
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <img src={image} alt={title} />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Current Initiative with carousel and manual controls */}
+      <section className="doing-section">
+        <h2 className="section-title">Our Current Initiative</h2>
+        <p className="doing-description">
+          Introducing प्रवाह, a mentorship program supporting Nepalese students pursuing careers in the water sector. With guidance from over 25 advisors, students gain insights into research, civil service, and the role of data and innovation. Prabaha also builds a strong network to strengthen Nepal’s water sector community.
+        </p>
+
+        <div className="carousel-container">
+          <button className="carousel-button prev" onClick={prevImage} aria-label="Previous Image">
+            &#8249;
+          </button>
+
+          <img
+            src={carouselImages[currentIndex]}
+            alt={`Prabaha Initiative Photo ${currentIndex + 1}`}
+            className="carousel-image"
+            key={currentIndex}
+          />
+
+          <button className="carousel-button next" onClick={nextImage} aria-label="Next Image">
+            &#8250;
+          </button>
+        </div>
+      </section>
+
+      {/* Blogs */}
+      <section className="blog-section">
+        <h2 className="section-title">Blogs</h2>
+        <div className="blogs-container">
+          {blogs.map(({ link, title, description, image }, index) => (
+            <Link to={link} key={index} className="blog">
+              <img src={image} alt={title} className="blog-image" />
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Us Footer */}
+      <footer className="contact-section">
+        <h2>Contact Us</h2>
+        <p>
+          Have questions or want to learn more about Paani AI? Email us at admin@paaniai.org, and
+          we'll get back to you soon.
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default Home;
