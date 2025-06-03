@@ -15,7 +15,7 @@ function Home() {
         {/* ✅ Background Image Only (CSS handles this) */}
         {/* No video tag here now */}
 
-        {/* ✅ Hero Content */}
+        
         <h1>Paani AI</h1>
         <h2>Empowering Nepal’s Water Sector with Data-Driven Innovation</h2>
         <Link to="/about">
@@ -79,6 +79,30 @@ function Home() {
           </div>
         </div>
       </section>
+
+      {/* What Are We Doing? Section */}
+<section className="doing-section">
+  <h2 className="section-title">Our Current Initiative</h2>
+  <p className="doing-description">
+    Introducing Prabaha, a mentorship program supporting Nepalese students pursuing careers in the water sector. With guidance from 15+ mentors and 10 advisors, students gain insights into research, civil service, and the role of data and innovation. Prabaha also builds a strong network to strengthen Nepal’s water sector community.
+  </p>
+  <div className="doing-images-row">
+    <div className="doing-image-wrapper">
+      <img src="/images/1.webp" />
+    </div>
+    <div className="doing-image-wrapper">
+      <img src="/images/2.webp" />
+    </div>
+    <div className="doing-image-wrapper">
+      <img src="/images/3.webp" />
+    </div>
+    <div className="doing-image-wrapper">
+      <img src="/images/4.webp" />
+    </div>
+  </div>
+</section>
+
+
 
       {/* Blogs */}
       <section className="blog-section">
@@ -167,7 +191,7 @@ const services = [
     title: 'Water Consultations',
     description: 'Expert Solutions for Integrated Water Resource Management in Nepal',
     image: '/images/Consultations.png',
-  }
+  },
 ];
 
 const blogs = [
