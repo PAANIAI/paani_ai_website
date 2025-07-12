@@ -1,0 +1,151 @@
+/* HERO SECTION */
+.hero-section {
+    position: relative;
+    background-color: #000; /* FULL BLACK BACKGROUND */
+    color: #fff;
+    text-align: center;
+    padding: 6rem 1rem;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* HERO HEADINGS */
+  .hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease;
+  }
+  
+  .hero-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: normal;
+    animation: fadeInUp 1s ease;
+  }
+  
+  .hero-button {
+    background-color: #5b82ff;
+    border: none;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 4px;
+  }
+  
+  .hero-button:hover {
+    background-color: #4a6ed8;
+    transform: scale(1.05);
+  }
+  
+  /* WATER ANIMATION CONTAINER */
+  .water-animation {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  
+  /* WATER SURFACE (optional) */
+  .water-surface {
+    position: absolute;
+    bottom: 150px;
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* DROP */
+  .drop {
+    position: absolute;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle at 30% 30%, rgba(91, 130, 255, 1), rgba(50, 80, 200, 1));
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(91, 130, 255, 0.8);
+    animation: drop 2.5s infinite ease-in;
+  }
+  
+  /* RIPPLE */
+  .ripple {
+    position: absolute;
+    bottom: 150px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgba(91, 130, 255, 0.6);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+    animation: ripple 2.5s infinite ease-out;
+  }
+  
+  /* KEYFRAMES */
+  
+  /* HEADINGS FADE IN */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* DROP ANIMATION */
+  @keyframes drop {
+    0% {
+      top: -50px;
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    90% {
+      top: 150px;
+      opacity: 1;
+    }
+    100% {
+      top: 150px;
+      opacity: 0;
+    }
+  }
+  
+  /* RIPPLE ANIMATION */
+  @keyframes ripple {
+    0% {
+      transform: scale(0);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(3);
+      opacity: 0.3;
+    }
+    100% {
+      transform: scale(5);
+      opacity: 0;
+    }
+  }
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 2.5rem;
+    }
+  
+    .hero-section h2 {
+      font-size: 1.2rem;
+    }
+  
+    .water-animation {
+      height: 300px;
+    }
+  }
+  
