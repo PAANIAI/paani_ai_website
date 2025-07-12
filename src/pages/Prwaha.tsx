@@ -70,7 +70,7 @@ const MENTORS_PER_ROW = 4;
 
 const Prwaha: React.FC = () => {
   const [viewerImg, setViewerImg] = useState<string | null>(null);
-  const [showAllMentors, setShowAllMentors] = useState(false);
+
   const [showAllGirls, setShowAllGirls] = useState(false);
 
   // Scroll to top when component mounts
@@ -172,7 +172,7 @@ const Prwaha: React.FC = () => {
                 
                 return (
                   <div className="mentors-row" key={rowIdx} style={{ opacity: 1 }}>
-                    {rowGirls.map((photo, idx) => (
+                    {rowGirls.map((photo) => (
                       <div className="mentor-card" key={photo}>
                         <img
                           src={photo}
