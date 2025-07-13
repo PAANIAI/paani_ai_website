@@ -109,7 +109,7 @@ const Home: React.FC = () => {
         </Link>
       </header>
       <section className="challenges-section">
-        <h2>Challenges in Nepal's Water Sector</h2>
+        <h2>Problem Areas</h2>
         <p>
           Nepal's water sector faces critical challenges that require innovative solutions and data-driven approaches
           to ensure sustainable water management for future generations.
