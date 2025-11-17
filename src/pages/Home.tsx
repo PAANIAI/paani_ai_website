@@ -247,7 +247,7 @@ const Home: React.FC = () => {
             <img src="/images/prabigya.jpeg" alt="Prabigya Acharya" className="person-img" />
             <div className="person-info">
               <h3>Prabigya Acharya</h3>
-              <p className="person-title">Chief Technical Officer</p>
+              <p className="person-title">Intern</p>
             </div>
           </div>
         </div>
