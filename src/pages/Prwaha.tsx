@@ -1,57 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
-const advisors = [
-  {
-    name: 'Soni Pradhanang',
-    title: 'Professor of Water Resources, University of Rhode Island',
-    photo: '/images/Advisors and Mentors/soni_mam.jpeg',
-  },
-  {
-    name: 'Meena Shrestha',
-    title: 'Joint Secretary, Ministry of Energy, Water Resources and Irrigation, Nepal',
-    photo: '/images/Advisors and Mentors/Meena shrestha.jpeg',
-  },
-  {
-    name: 'Manohara Khadka',
-    title: 'Country Director, International Water Management Institute (IWMI)',
-    photo: '/images/Advisors and Mentors/manohara_khadaka.jpeg',
-  },
-  {
-    name: 'Neera Shrestha Pradhan',
-    title: 'Senior Water and Adaptation Specialist, International Centre for Integrated Mountain Development (ICIMOD)',
-    photo: '/images/Advisors and Mentors/neera shrestha pradhan.jpeg',
-  },
-];
-
-const mentors = [
-  {
-    name: 'Sabita Adhikari',
-    title: 'Assistant Professor, University of Sydney',
-    photo: '/images/Advisors and Mentors/sabita_didi.jpeg',
-  },
-  {
-    name: 'Gayatri Paudel',
-    title: 'IHE Delft Institute for Water Education',
-    photo: '/images/Advisors and Mentors/gayatri_paudel.jpg',
-  },
-  {
-    name: 'Pranisha Pokhrel',
-    title: 'Utrecht University',
-    photo: '/images/Advisors and Mentors/pranisha_didi.jpeg',
-  },
-  {
-    name: 'Shraddha Sharma',
-    title: 'Arizona State University',
-    photo: '/images/Advisors and Mentors/shradhha_sharma.jpeg',
-  },
-  {
-    name: 'Sarana Tualdhar',
-    title: 'IHE Delft Institute for Water Education',
-    photo: '/images/Advisors and Mentors/sarana_tuladhar.jpeg',
-  },
-];
-
 const girls = [
   '/images/girls/2.png',
   '/images/girls/3.png',
@@ -64,6 +13,21 @@ const girls = [
   '/images/girls/10.png',
   '/images/girls/11.png',
   '/images/girls/12.png',
+];
+
+const outcomes = [
+  {
+    title: 'Trend Analysis of Precipitation in Madhesh Province of Nepal',
+    poster: '/images/Events/Poster%20Presentation/madhesh_precipitation_trend_poster%20(1).png',
+  },
+  {
+    title: 'Analysis of Rainfall Pattern in Gandaki Province',
+    poster: '/images/Events/Poster%20Presentation/gandaki_rainfall_pattern_poster%20(1).png',
+  },
+  {
+    title: 'A Simple Rainfall Runoff Model of West Rapti Basin',
+    poster: '/images/Events/Poster%20Presentation/west_rapti_runoff_model_poster%20(1).png',
+  },
 ];
 
 const MENTORS_PER_ROW = 4;
@@ -122,40 +86,6 @@ const Prwaha: React.FC = () => {
             </div>
           </div>
 
-          {/* Advisors Section */}
-          <div className="mentors-section">
-            <h2 className="mentors-title">Advisory Board</h2>
-            <p className="mentors-intro">
-              Our Advisory Board comprises renowned leaders in water resources, policy, and research, providing strategic guidance and vision for the program.
-            </p>
-            <div className="mentors-grid">
-              {advisors.map((advisor) => (
-                <div className="mentor-card" key={advisor.name}>
-                  <img src={advisor.photo} alt={advisor.name} className="mentor-photo" />
-                  <div className="mentor-name">{advisor.name}</div>
-                  <div className="mentor-title">{advisor.title}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mentors Section */}
-          <div className="mentors-section">
-            <h2 className="mentors-title">Mentorship Team</h2>
-            <p className="mentors-intro">
-              Our mentors are accomplished professionals and academics dedicated to nurturing emerging talent and fostering innovation in Nepal’s water sector.
-            </p>
-            <div className="mentors-grid">
-              {mentors.map((mentor) => (
-                <div className="mentor-card" key={mentor.name}>
-                  <img src={mentor.photo} alt={mentor.name} className="mentor-photo" />
-                  <div className="mentor-name">{mentor.name}</div>
-                  <div className="mentor-title">{mentor.title}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Our Girls Section */}
           <div className="mentors-section girls-section">
             <h2 className="mentors-title">Our Girls</h2>
@@ -197,6 +127,28 @@ const Prwaha: React.FC = () => {
                 {showAllGirls ? 'Show Less' : 'View More Girls'}
               </button>
             )}
+          </div>
+
+          {/* Cohort 1 Research Outcomes */}
+          <div className="mentors-section">
+            <h2 className="mentors-title">Research Outcomes</h2>
+            <p className="mentors-intro">
+              Our first cohort — 12 Fellows across three groups — wrapped up with a virtual poster session, each group presenting the mini research project they built through the program.
+            </p>
+            <div className="outcomes-grid">
+              {outcomes.map((o) => (
+                <div className="outcome-card" key={o.title}>
+                  <img
+                    src={o.poster}
+                    alt={o.title}
+                    className="outcome-poster"
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => setViewerImg(o.poster)}
+                  />
+                  <div className="outcome-title">{o.title}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Image Viewer Modal */}
