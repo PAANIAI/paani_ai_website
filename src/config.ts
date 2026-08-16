@@ -11,9 +11,11 @@
 
 export const CONTACT_EMAIL = 'admin@paaniai.org';
 
-// Replace REPLACE_ME_* with the Google Form links.
-export const GOOGLE_FORM_MENTOR_URL = 'REPLACE_ME_MENTOR';
-export const GOOGLE_FORM_COHORT_URL = 'REPLACE_ME_COHORT';
+// Google Form links (full "viewform" URLs; the embed helper adds ?embedded=true).
+export const GOOGLE_FORM_MENTOR_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSekGr0qucZyOFAjisP_UCS2lD93rY523OB8C6z_SODnSrl96g/viewform';
+export const GOOGLE_FORM_COHORT_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSfRsbCeT4liGtUE8RLPg-yLaO-n_9razKdPPl82QVyd3X0Qaw/viewform';
 
 /** True once a real Google Form link has been configured for a form. */
 export const isFormConfigured = (url: string): boolean =>

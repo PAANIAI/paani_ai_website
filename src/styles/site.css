@@ -964,6 +964,11 @@
 .form-embed-wrap {
   margin-top: 1.5rem;
 }
+.form-embed-hint {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0 0 0.8rem;
+}
 .form-embed {
   width: 100%;
   max-width: 720px;
@@ -1036,6 +1041,22 @@
 }
 .eligibility li {
   margin-bottom: 0.3rem;
+}
+
+.process-list {
+  margin: 0;
+  padding-left: 1.3rem;
+  counter-reset: step;
+}
+.process-list li {
+  color: var(--ink-soft);
+  margin-bottom: 0.7rem;
+  padding-left: 0.3rem;
+  line-height: 1.55;
+}
+.process-list li::marker {
+  color: var(--brand-green-deep);
+  font-weight: 700;
 }
 
 .checkbox-row {

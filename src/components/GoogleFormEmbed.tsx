@@ -30,6 +30,13 @@ const GoogleFormEmbed: React.FC<Props> = ({ url, title }) => {
 
   return (
     <div className="form-embed-wrap">
+      <p className="form-embed-hint">
+        Trouble loading the form (for example, if it asks you to sign in)?{' '}
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          Open it in a new tab
+        </a>
+        .
+      </p>
       <iframe
         className="form-embed"
         src={toEmbedSrc(url)}

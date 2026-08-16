@@ -42,6 +42,21 @@ const ApplyCohort: React.FC = () => {
         </ul>
       </div>
 
+      {/* Selection process */}
+      <div className="section" style={{ marginTop: '1.75rem' }}>
+        <div className="section-head">
+          <h2 className="section-title">Selection process</h2>
+        </div>
+        <ol className="process-list">
+          <li>Applications are open until <strong>mid-September</strong>.</li>
+          <li>Teams are shortlisted and invited in for a brief talk.</li>
+          <li>
+            A few teams are finally selected, based on their interest and
+            dedication to research in water resources.
+          </li>
+        </ol>
+      </div>
+
       <GoogleFormEmbed url={GOOGLE_FORM_COHORT_URL} title="Paani AI research mentorship application" />
     </div>
   );
