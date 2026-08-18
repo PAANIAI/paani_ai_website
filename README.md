@@ -1,50 +1,84 @@
-# React + TypeScript + Vite
+# Paani AI — Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The official website of **Paani AI**, an organization empowering Nepal's water sector with data-driven innovation. It presents the organization's mission and problem areas, its roadmap, mentorship cohorts (प्रवाह / Prawaha), people, events, blog, and application forms.
 
-Currently, two official plugins are available:
+Built as a multi-page single-page app with a persistent sidebar navigation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech stack
 
-## Expanding the ESLint configuration
+- **React 18** + **TypeScript**
+- **Vite 6** (dev server + build)
+- **React Router 7** (client-side routing)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Getting started
 
-- Configure the top-level `parserOptions` property like this:
+Requires **Node.js** (18+) and npm.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install      # install dependencies
+npm run dev      # start the dev server (http://localhost:5173)
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Scripts
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+| Command           | What it does                                  |
+| ----------------- | --------------------------------------------- |
+| `npm run dev`     | Start the local dev server with hot reload    |
+| `npm run build`   | Type-check and build to `dist/`               |
+| `npm run preview` | Serve the production build locally            |
+| `npm run lint`    | Run ESLint                                    |
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## Project structure
+
 ```
+public/
+  images/            # all site imagery (problem areas, people, events, logo…)
+  _redirects         # SPA routing fallback for static hosts
+src/
+  components/
+    Layout.tsx       # persistent sidebar + page shell
+    GoogleFormEmbed.tsx
+  data/
+    site.ts          # ← most editable content lives here
+  pages/             # one file per route (Home, About, Cohorts, People, …)
+    apply/           # Apply landing + Mentor/Research form pages
+  config.ts          # contact email + Google Form URLs
+  styles/site.css    # design system + page styles
+  App.tsx            # routes
+```
+
+## Editing content
+
+Most text and listings are data-driven from [`src/data/site.ts`](src/data/site.ts):
+
+- **Problem areas, roadmap, blog posts** — the `challenges`, `roadmapPhase1`, `services`, and `blogs` arrays.
+- **People** — the `team`, `advisors`, and `mentors` arrays (name, title, photo path).
+- **Events** — the `events` array (talk series with sessions, field work, showcases).
+- **Cohorts** — the `cohorts` array. Adding a second cohort is a single new object; no page changes needed.
+
+Images go in `public/images/…` and are referenced by absolute path (e.g. `/images/Logo/Paani AI.png`).
+
+## Apply forms
+
+The two application flows (Mentor, Research Mentorship) embed **Google Forms**, configured in [`src/config.ts`](src/config.ts):
+
+```ts
+export const GOOGLE_FORM_MENTOR_URL = 'https://docs.google.com/forms/d/e/…/viewform';
+export const GOOGLE_FORM_COHORT_URL = 'https://docs.google.com/forms/d/e/…/viewform';
+```
+
+Paste the form's "viewform" link; the embed adds `?embedded=true` automatically. The Research form requires Google sign-in (it collects file uploads), so each page also shows an "open in a new tab" fallback.
+
+## Deployment
+
+The site is a static build — deploy the `dist/` folder to any static host.
+
+1. Build: `npm run build` → outputs to `dist/`.
+2. Host it (e.g. **Netlify** / **Vercel**): import this repo, set **build command** `npm run build` and **publish directory** `dist`.
+3. `public/_redirects` (`/* /index.html 200`) ensures deep links like `/about` and `/apply/cohort` resolve correctly on static hosts.
+
+For a quick public preview without a host connection, drag the built `dist/` folder onto [app.netlify.com/drop](https://app.netlify.com/drop).
+
+## License
+
+© Paani AI. All rights reserved.
